@@ -2,3 +2,5 @@
 *.so
 *.a
 executable
+target
+Cargo.lock
