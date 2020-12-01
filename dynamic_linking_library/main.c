@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <lib.h>
+#include <arithmetic.h>
 
 int main() {
     printf("add(1, 1)=%d\n", add(1, 1));
