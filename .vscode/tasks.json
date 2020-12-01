@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run_static_link",
+            "type": "shell",
+            "command": "make run",
+            "options": {
+                "cwd": "${workspaceRoot}/static_link"
+            }
+        },
+        {
+            "label": "run_static_lib",
+            "type": "shell",
+            "command": "make run",
+            "options": {
+                "cwd": "${workspaceRoot}/static_lib"
+            }
+        }
+    ]
+}
