@@ -1,3 +1,4 @@
+// ./target/debug/libarithmetic.so
 int add(int, int);
 
 int main() {
