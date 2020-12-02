@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <add.h>
+// prototype of function add() defined in add.c
+int add(int, int);
 
 int main() {
-    printf("add(1, 1)=%d\n", add(1, 1));
+    add(1,1);
     return 0;
 }

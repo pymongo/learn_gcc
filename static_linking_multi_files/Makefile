@@ -5,10 +5,18 @@
 clean:
 	cd .. && make clean
 .ONESHELL:
-run: clean
+main_with_add_h: clean
 	cp *.c *.h ../target/ && cd ../target/
 	gcc -c add.c # `-c`: compile to an object file, omit `-I .` beacause our lib(add) is has no header to include
 	# `-I .`: add path . to gcc header files search path
-	gcc -o main.o -I . -c main.c # or -include add.h
+	gcc -o main.o -I . -c main_with_add_h.c # or -include add.h
 	gcc -o executable main.o add.o # alternative: use ld linker rather than gcc compiler
 	./executable
+.ONESHELL:
+# only support in x86_64-linux, only asm can compile pure static linking executable file
+statically_linked_executable: clean
+	cp statically_linked_executable.s ../target/hello.s && cd ../target
+	nasm -o hello.o -f elf64 hello.s
+	ld -o hello hello.o
+	file hello
+	./hello

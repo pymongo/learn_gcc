@@ -29,13 +29,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     assert_eq!(process_exit_status.code(), Some(0));
     let process_exit_status = std::process::Command::new("ar")
         .current_dir(&out_dir)
-        .args(&["crus", "libsll.a", "sll.o"])
+        // `ar crus` or `ar rs`?
+        .args(&["rs", "libsll.a", "sll.o"])
         .status()?;
     assert_eq!(process_exit_status.code(), Some(0));
 
     println!("cargo:rustc-link-search=native={}", out_dir_str);
     println!("cargo:rustc-link-lib=dylib=dll");
     println!("cargo:rustc-link-lib=static=sll");
+    
     println!("cargo:rerun-if-changed=src/dll.c");
     println!("cargo:rerun-if-changed=src/sll.c");
     Ok(())
