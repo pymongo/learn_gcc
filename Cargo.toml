@@ -1,4 +1,5 @@
 [workspace]
 members = [
     "c_call_rust_dll_sll",
+    "rust_call_c_dll"
 ]

@@ -2,13 +2,6 @@
 name = "arithmetic"
 version = "0.1.0"
 
-# abort_when_panic is not required, but recommend
-[profile.dev]
-panic = "abort"
-
-[profile.release]
-panic = "abort"
-
 [lib]
 # Rust can both compile to SLL(Static Linking Library) and DLL(Dynamic Linking Library)
 crate-type = ["staticlib", "cdylib"]

@@ -1,4 +1,14 @@
-run:
+.ONESHELL:
+dll:
 	cargo build
-	gcc -o target/debug/executable main.c ./target/debug/libarithmetic.so
-	./target/debug/executable
+	cp main.c ../target/debug/ && cd ../target/debug/
+	gcc -o executable main.c ./libarithmetic.so
+	./executable
+	ldd executable
+.ONESHELL:
+sll:
+	cargo build
+	cp main.c ../target/debug/ && cd ../target/debug/
+	gcc -o executable main.c libarithmetic.a
+	./executable
+	ldd executable
