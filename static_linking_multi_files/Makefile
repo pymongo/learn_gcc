@@ -13,10 +13,6 @@ main_with_add_h: clean
 	gcc -o executable main.o add.o # alternative: use ld linker rather than gcc compiler
 	./executable
 .ONESHELL:
-# only support in x86_64-linux, only asm can compile pure static linking executable file
 statically_linked_executable: clean
-	cp statically_linked_executable.s ../target/hello.s && cd ../target
-	nasm -o hello.o -f elf64 hello.s
-	ld -o hello hello.o
-	file hello
-	./hello
+	# or GNU assembler (GNU Binutils): as statically_linked_executable.s && ld statically_linked_executable.o && ./a.out
+	gcc -c statically_linked_executable.s && ld statically_linked_executable.o && ./a.out
