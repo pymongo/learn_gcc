@@ -3,5 +3,4 @@ name = "arithmetic"
 version = "0.1.0"
 
 [lib]
-# Rust can both compile to SLL(Static Linking Library) and DLL(Dynamic Linking Library)
 crate-type = ["staticlib", "cdylib"]

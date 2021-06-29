@@ -1,4 +1,3 @@
-#.PHONY: dynamic_linking_library, statically_linking_library
 gcc_headers_search_path:
 	echo | gcc -E -Wp,-v -
 gcc_linker_library_search_path:
